@@ -1,19 +1,9 @@
 #!/usr/bin/env bash
+set -e
 
-if [[ -d "./bin" ]]; then
-  echo "bin folder exists."
-    echo "compiling now...\n"
-else
-  echo "bin folder does not exist."
-  echo "making bin folder now\n."
-  mkdir -p ./bin
-  echo "bin folder created."
-  echo "compiling now...\n"
+if [[ ! -f build/build.ninja ]]; then
+  CC=clang meson setup build
 fi
 
-clang -Wall -Werror -Wextra main.c -o bin/main
-echo "compiling complete."
-echo "running project now...\n"
-
-bin/main
-
+meson compile -C build
+./build/main
