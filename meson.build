@@ -2,7 +2,7 @@ project(
   'agecalc',
   'c',
   meson_version : '>= 1.3.0',
-  version : '0.1',
+  version : '1.0',
   default_options : ['warning_level=3'],
 )
 
@@ -14,7 +14,7 @@ sources = [
 ]
 
 exe = executable(
-  'main',
+  'agecalc',
   sources,
   dependencies : dependencies,
   install : false,

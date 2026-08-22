@@ -6,7 +6,6 @@ int is_leap(int y) { return (y % 4 == 0 && y % 100 != 0) || y % 400 == 0; }
 int main(void) {
   int year_of_birth;
   int month_of_birth;
-  // int day_of_birth;
 
   char *year_string = "years";
   char *month_string = "months";
@@ -17,29 +16,13 @@ int main(void) {
   printf("Enter month of birth: ");
   scanf("%d", &month_of_birth);
 
-  // printf("Enter day of birth: ");
-  // scanf("%d", &day_of_birth);
-
   time_t now = time(NULL); // raw seconds since 1970
   struct tm *t = localtime(&now);
   int current_year = t->tm_year + 1900;
   int current_month = t->tm_mon + 1;
-  // int current_day = t->tm_mday;
 
   int age_y = current_year - year_of_birth;
   int age_m = current_month - month_of_birth;
-  // int age_d = current_day - day_of_birth;
-
-  // int m = t->tm_yday;
-  // int number_of_days_in_month[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31,
-  // 30, 31};
-
-  // int leap_years = 0;
-  // for (int i = year_of_birth; i <= current_year; i++) {
-  //   if (is_leap(i)) {
-  //     leap_years++;
-  //   }
-  // }
 
   int total_age_m = (age_y * 12) + age_m;
   int final_age_y = total_age_m / 12;

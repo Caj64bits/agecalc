@@ -6,4 +6,4 @@ if [[ ! -f build/build.ninja ]]; then
 fi
 
 meson compile -C build
-./build/main
+./build/agecalc
